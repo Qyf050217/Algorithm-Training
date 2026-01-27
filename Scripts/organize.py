@@ -5,6 +5,15 @@ import hashlib
 import re
 from datetime import datetime
 
+# 获取当前脚本的绝对路径，并定位到它的上一级（即项目根目录）
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# 以后所有的路径都基于 BASE_DIR
+ACCEPTED_DIR = os.path.join(BASE_DIR, 'Accepted')
+ATTEMPTED_DIR = os.path.join(BASE_DIR, 'Attempted')
+CSV_PATH = os.path.join(BASE_DIR, 'training_history.csv')
+IMG_PATH = os.path.join(BASE_DIR, 'ac_heatmap.png')
+
 # ANSI 颜色
 RED, GREEN, YELLOW, BLUE, RESET = "\033[91m", "\033[92m", "\033[93m", "\033[94m", "\033[0m"
 
@@ -167,7 +176,7 @@ def organize():
                         try: os.rmdir(d_path)
                         except: pass
 
-    print("\n" + "·" * 40 + f"\n🚀 总结：已 AC {stats['ac']} 题 | ⏳ 新下放 {stats['attempted']} 题\n" + "·" * 40)
+    print("\n" + "·" * 40 + f"\n🚀 总结：已 AC {stats['ac']} 题 | ⏳ 新尝试 {stats['attempted']} 题\n" + "·" * 40)
 
 if __name__ == "__main__":
     organize()
