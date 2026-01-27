@@ -38,7 +38,7 @@ echo --------------------------------------------
 :: 3. 执行 Git 同步流程
 git add .
 :: 使用当前日期和时间作为 Commit 信息，方便回溯
-git commit -m "Auto sync: %date% %time% | AC Heatmap Updated"
+git commit -m "Auto sync: %date% %time%"
 git push
 
 echo.
