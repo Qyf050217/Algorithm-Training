@@ -133,6 +133,8 @@
     // Debug: Show Breakpoints In Overview Ruler
     "debug.showBreakpointsInOverviewRuler": true,
     "cSpell.words": [
-        "MAXN"
+        "chcp",
+        "MAXN",
+        "PYTHONUTF"
     ]
 }
