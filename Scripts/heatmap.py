@@ -40,7 +40,7 @@ def plot_daily_achievement_heatmap():
         print(f"🔥 今日 AC 总数: {GREEN}{today_ac}{RESET} 题")
         
         if today_ac == 0:
-            print(f"{YELLOW}💡 提示：今天还没有 AC 记录，快去写题吧！银奖在等你。{RESET}")
+            print(f"{YELLOW}💡 提示：今天还没有 AC 记录，快去写题吧！{RESET}")
         elif today_ac < 4:
             print(f"{BLUE}💪 评价：保持手感，目前的进度大约完成了今日目标的 {today_ac/8*100:.1f}%。{RESET}")
         elif today_ac < 8:
@@ -63,7 +63,7 @@ def plot_daily_achievement_heatmap():
         # 4. 绘图：锁定 8 题为最深色 [cite: 2026-01-27]
         plt.figure(figsize=(15, 3))
         
-        # 【微调部分】: 使用掩码和纯绿颜色盘，确保 1 题也清晰可见
+        # 使用掩码和纯绿颜色盘，确保 1 题也清晰可见
         mask = (matrix == 0)
         ax = plt.gca()
         ax.set_facecolor('#ebedf0') # GitHub 风格的空缺格子背景色
