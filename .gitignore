@@ -1,0 +1,33 @@
+# --- 编译产物 (必选) ---
+# 过滤掉 Windows 下生成的执行文件
+*.exe
+*.o
+*.obj
+
+# 过滤掉 Linux/Mac 下可能的生成文件
+*.out
+*.app
+
+# --- VS Code 临时文件 (必选) ---
+# 过滤掉调试产生的中间数据和缓存
+.vscode/ipch/
+.vscode/bin/
+.vscode/*.exe
+
+# 如果你不希望分享个人的 launch.json 或 tasks.json，可以取消下一行的注释
+# .vscode/
+
+# --- Python 脚本缓存 (必选) ---
+__pycache__/
+*.pyc
+*.pyo
+
+# --- CPH 数据文件 (可选) ---
+# 注意：如果你希望在 GitHub 备份测试用例，请注释掉下面这一行。
+# 但通常 .prob 文件包含本地绝对路径，在其他电脑上无法直接运行。
+.cph/
+
+# --- 系统临时文件 ---
+Thumbs.db
+.DS_Store
+.history/
