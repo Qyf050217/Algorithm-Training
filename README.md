@@ -1,5 +1,5 @@
 # 🏆 Algorithm Training Log
-> 🎯 **Goal:** ACM Silver Medal | *Last updated: 2026-01-27 23:48:15*
+> 🎯 **Goal:** ACM Silver Medal | *Last updated: 2026-01-28 23:23:49*
 
 ## 📈 训练热力图 (Heatmap)
 ![Algorithm Training Heatmap](ac_heatmap.png)
@@ -15,16 +15,16 @@
             <table width="100%">
                 <thead><tr><th align="center">平台</th><th align="left">题目</th><th align="right">日期</th></tr></thead>
                 <tbody>
-                <tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/127240/B'>小红的马卡龙定位</a></td><td align='right'>01-27</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/127240/F'>小红的提拉米苏配方_hard</a></td><td align='right'>01-27</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/127240/E'>小红的提拉米苏配方_easy</a></td><td align='right'>01-27</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/127240/C'>小红的奶油蛋糕工坊</a></td><td align='right'>01-27</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/127240/D'>小红的奇数奶油球</a></td><td align='right'>01-27</td></tr>
+                <tr><td align='center'><code>Others</code></td><td><a href='https://pintia.cn/problem-sets/1991863544130179072/exam/problems/type/7?problemSetProblemId=2014550553814372352'>7_5_再来一瓶</a></td><td align='right'>01-28</td></tr><tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/653/problem/B'>653B</a></td><td align='right'>01-28</td></tr><tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/489/problem/B'>489B</a></td><td align='right'>01-28</td></tr><tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/1948/problem/C'>1948C</a></td><td align='right'>01-28</td></tr><tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/gym/105198/problem/M'>105198M</a></td><td align='right'>01-28</td></tr>
                 </tbody>
             </table>
         </td>
         <td width="50%" valign="top">
-            <h4 align="center">⌛ 积压最久 (0)</h4>
+            <h4 align="center">⌛ 积压最久 (1)</h4>
             <table width="100%">
                 <thead><tr><th align="center">平台</th><th align="left">题目</th><th align="right">日期</th></tr></thead>
                 <tbody>
-                <tr><td colspan='3' align='center'>暂无积压题目，补题效率满分！！</td></tr>
+                <tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/gym/105198/problem/G'>105198G</a></td><td align='right'>01-28</td></tr>
                 </tbody>
             </table>
         </td>
@@ -35,6 +35,7 @@
 
 ## 📊 每日过题记录 (AC History)
 
-| 日期 | Codeforces | Luogu | Nowcoder | Vjudge | **Total** |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| 2026-01-27 | 1 | 2 | 6 | 1 | **10** |
+| 日期 | Codeforces | Luogu | Nowcoder | Others | Vjudge | **Total** |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| 2026-01-28 | 4 | - | - | 1 | - | **5** |
+| 2026-01-27 | 1 | 2 | 6 | - | 1 | **10** |
