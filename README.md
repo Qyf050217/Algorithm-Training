@@ -1,5 +1,5 @@
 # 🏆 Algorithm Training Log
-> 🎯 **Goal:** ACM Silver Medal | *Last updated: 2026-01-30 01:46:18*
+> 🎯 **Goal:** ACM Silver Medal | *Last updated: 2026-01-30 15:12:07*
 
 ## 📈 训练热力图 (Heatmap)
 ![Algorithm Training Heatmap](ac_heatmap.png)
@@ -37,6 +37,6 @@
 
 | 日期 | Codeforces | Luogu | Nowcoder | Others | Vjudge | **Total** |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| 2026-01-29 | 8 | - | - | - | - | **8** |
-| 2026-01-28 | 4 | - | - | 1 | - | **5** |
-| 2026-01-27 | 1 | 2 | 6 | - | 1 | **10** |
+| [2026-01-29](./DailyLogs/2026-01-29.md) | 8 | - | - | - | - | **8** |
+| [2026-01-28](./DailyLogs/2026-01-28.md) | 4 | - | - | 1 | - | **5** |
+| [2026-01-27](./DailyLogs/2026-01-27.md) | 1 | 2 | 6 | - | 1 | **10** |
