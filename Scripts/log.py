@@ -50,7 +50,6 @@ def persist_to_csv(daily_ac, platforms):
         writer.writerows(rows)
 
 def get_stats():
-    """扫描目录获取 Accepted (三层结构) 的历史统计"""
     daily_ac = defaultdict(lambda: defaultdict(int))
     all_platforms = set()
     if os.path.exists(ACCEPTED_DIR):
@@ -126,13 +125,13 @@ def update_readme():
     content = [
         "# 🏆 Algorithm Training Log\n",
         f"> 🎯 **Goal:** ACM Silver Medal | *Last updated: {now}*\n\n",
-        "## 📈 训练热力图 (Heatmap)\n",
+        "## 📈 Heatmap\n",
         "![Algorithm Training Heatmap](ac_heatmap.png)\n\n",
         "--- \n\n",
-        "## 🕒 核心看板 (Dashboard)\n",
+        "## 🕒 Dashboard\n",
         dashboard_html + "\n",
         "--- \n\n",
-        "## 📊 每日过题记录 (AC History)\n\n"
+        "## 📊 AC History\n\n"
     ]
 
     if daily_ac:
