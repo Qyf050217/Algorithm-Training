@@ -20,10 +20,11 @@ int ksm(int a, int b) {
 }
 
 void solve(){
-    int n, p, k;cin >> n >> p >> k;
-    int all = n + (n - 1) / (k - 1);
-    int res = 100 * all % MOD * inv(100 - p) % MOD;
-    cout << res % MOD << endl;
+    int n,p,x,k;cin >> n >> p >> x >> k;
+    int fz = 100 * (n * k % MOD - 1) % MOD;
+    int fm = 100 * (k - 1) % MOD + p * (x - k) % MOD;
+    int res = fz % MOD * inv(fm) % MOD;
+    cout << res << endl;
 }
 
 signed main() {
