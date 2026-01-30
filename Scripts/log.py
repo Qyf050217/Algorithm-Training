@@ -83,7 +83,7 @@ def generate_daily_logs(daily_data):
         log_file = os.path.join(LOGS_DIR, f"{date_str}.md")
         content = [f"# 📝 训练总结: {date_str}\n\n", "| 平台 | 题目名称 | 源码跳转 |\n| :--- | :--- | :--- |\n"]
         for p in probs:
-            rel_code_path = os.path.relpath(p['path'], LOGS_DIR)
+            rel_code_path = os.path.relpath(p['path'], LOGS_DIR).replace('\\', '/')
             name_display = f"[{p['name']}]({p['url']})" if p['url'] else f"**{p['name']} (本地)**"
             content.append(f"| `{p['platform']}` | {name_display} | [查看代码]({rel_code_path}) |\n")
         with open(log_file, 'w', encoding='utf-8') as f:
