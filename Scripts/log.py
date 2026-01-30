@@ -1,22 +1,25 @@
 import os
 import csv
 import re
+import json
 from datetime import datetime
 from collections import defaultdict
 
 # --- 1. 路径自动定位 ---
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 ACCEPTED_DIR = os.path.join(BASE_DIR, 'Accepted')
 ATTEMPTED_DIR = os.path.join(BASE_DIR, 'Attempted')
+LOGS_DIR = os.path.join(BASE_DIR, 'DailyLogs')
 HISTORY_CSV = os.path.join(BASE_DIR, 'training_history.csv')
 README_FILE = os.path.join(BASE_DIR, 'README.md')
+
+if not os.path.exists(LOGS_DIR): os.makedirs(LOGS_DIR)
 
 # --- 2. 配置参数 ---
 TOP_N = 5
 
 def get_oj_url(cpp_path):
-    """从同目录下的 .cph 文件夹提取网址"""
+    """适配 CPH 插件：从同目录下的 .cph 文件夹提取网址 [cite: 2026-01-30]"""
     cpp_filename = os.path.basename(cpp_path)
     cph_dir = os.path.join(os.path.dirname(cpp_path), '.cph')
     if os.path.exists(cph_dir) and os.path.isdir(cph_dir):
@@ -30,73 +33,71 @@ def get_oj_url(cpp_path):
                 except: continue
     return None
 
-def persist_to_csv(daily_ac, platforms):
-    """将统计数据持久化到 CSV 供 heatmap.py 绘图"""
-    headers = ['Date'] + platforms + ['Total']
-    rows = []
-    for d in sorted(daily_ac.keys()):
-        row = {'Date': d}
-        total = 0
-        for p in platforms:
-            val = daily_ac[d].get(p, 0)
-            row[p] = val
-            total += val
-        row['Total'] = total
-        rows.append(row)
-
-    with open(HISTORY_CSV, 'w', newline='', encoding='utf-8-sig') as f:
-        writer = csv.DictWriter(f, fieldnames=headers)
-        writer.writeheader()
-        writer.writerows(rows)
-
-def get_stats():
-    daily_ac = defaultdict(lambda: defaultdict(int))
+def scan_repository():
+    """全量扫描仓库，返回结构化数据 [cite: 2026-01-30]"""
+    daily_data = defaultdict(list)
+    recent_ac_pool = []
+    backlog_pool = []
     all_platforms = set()
+
+    # 1. 扫描 Accepted (用于日志和历史统计)
     if os.path.exists(ACCEPTED_DIR):
-        for p in os.listdir(ACCEPTED_DIR):
-            p_path = os.path.join(ACCEPTED_DIR, p)
-            if os.path.isdir(p_path):
-                all_platforms.add(p)
-                for d in os.listdir(p_path):
-                    d_path = os.path.join(p_path, d)
-                    if os.path.isdir(d_path):
-                        count = len([f for f in os.listdir(d_path) if f.endswith('.cpp')])
-                        daily_ac[d][p] += count
-    return daily_ac, sorted(list(all_platforms))
+        for root, _, files in os.walk(ACCEPTED_DIR):
+            for f in files:
+                if f.endswith('.cpp'):
+                    path = os.path.join(root, f)
+                    rel_parts = os.path.relpath(root, ACCEPTED_DIR).split(os.sep)
+                    if len(rel_parts) >= 2:
+                        platform, date_str = rel_parts[0], rel_parts[1]
+                        all_platforms.add(platform)
+                        url = get_oj_url(path)
+                        mtime = os.path.getmtime(path)
+                        
+                        item = {
+                            'name': f.replace('.cpp', ''), 'url': url, 'platform': platform,
+                            'path': path, 'time': mtime, 'date': date_str
+                        }
+                        daily_data[date_str].append(item)
+                        if url: recent_ac_pool.append(item)
 
-def get_top_n(folder, reverse_sort=True):
-    """扫描目录，获取 Top N 题目并提取平台名称"""
-    problems = []
-    if not os.path.exists(folder): return []
-    for root, _, files in os.walk(folder):
-        for f in files:
-            if f.endswith('.cpp'):
-                path = os.path.join(root, f)
-                url = get_oj_url(path)
-                if url:
-                    # 获取平台名称
-                    rel_root = os.path.relpath(root, folder)
+    # 2. 扫描 Attempted (用于积压看板)
+    if os.path.exists(ATTEMPTED_DIR):
+        for root, _, files in os.walk(ATTEMPTED_DIR):
+            for f in files:
+                if f.endswith('.cpp'):
+                    path = os.path.join(root, f)
+                    rel_root = os.path.relpath(root, ATTEMPTED_DIR)
                     platform = rel_root.split(os.sep)[0] if rel_root != "." else "Other"
-                    
-                    mtime = os.path.getmtime(path)
-                    problems.append({
-                        'name': f.replace('.cpp', ''),
-                        'url': url,
-                        'platform': platform,
-                        'time': mtime
-                    })
-    problems.sort(key=lambda x: x['time'], reverse=reverse_sort)
-    return problems[:TOP_N]
+                    url = get_oj_url(path)
+                    if url:
+                        backlog_pool.append({
+                            'name': f.replace('.cpp', ''), 'url': url, 'platform': platform,
+                            'time': os.path.getmtime(path)
+                        })
 
-def update_readme():
-    """生成看板 HTML 并更新 README"""
+    return daily_data, recent_ac_pool, backlog_pool, sorted(list(all_platforms))
+
+def generate_daily_logs(daily_data):
+    """生成 DailyLogs 下的 MD 文件 [cite: 2026-01-30]"""
+    for date_str, probs in daily_data.items():
+        log_file = os.path.join(LOGS_DIR, f"{date_str}.md")
+        content = [f"# 📝 训练总结: {date_str}\n\n", "| 平台 | 题目名称 | 源码跳转 |\n| :--- | :--- | :--- |\n"]
+        for p in probs:
+            rel_code_path = os.path.relpath(p['path'], LOGS_DIR)
+            name_display = f"[{p['name']}]({p['url']})" if p['url'] else f"**{p['name']} (本地)**"
+            content.append(f"| `{p['platform']}` | {name_display} | [查看代码]({rel_code_path}) |\n")
+        with open(log_file, 'w', encoding='utf-8') as f:
+            f.writelines(content)
+
+def update_readme_and_csv(daily_data, recent_pool, backlog_pool, platforms):
+    """更新 README 看板、带链接的历史表，并持久化 CSV [cite: 2026-01-30]"""
     now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    daily_ac, platforms = get_stats()
     
-    recent_ac = get_top_n(ACCEPTED_DIR, reverse_sort=True)
-    oldest_pending = get_top_n(ATTEMPTED_DIR, reverse_sort=False)
+    # 看板排序
+    recent_ac = sorted(recent_pool, key=lambda x: x['time'], reverse=True)[:TOP_N]
+    oldest_pending = sorted(backlog_pool, key=lambda x: x['time'], reverse=False)[:TOP_N]
 
-    # 看板 HTML
+    # 1. 构造 Dashboard HTML
     dashboard_html = f"""
 <table width="100%">
     <tr>
@@ -114,7 +115,7 @@ def update_readme():
             <table width="100%">
                 <thead><tr><th align="center">平台</th><th align="left">题目</th><th align="right">日期</th></tr></thead>
                 <tbody>
-                {"".join([f"<tr><td align='center'><code>{p['platform']}</code></td><td><a href='{p['url']}'>{p['name']}</a></td><td align='right'>{datetime.fromtimestamp(p['time']).strftime('%m-%d')}</td></tr>" for p in oldest_pending]) if oldest_pending else "<tr><td colspan='3' align='center'>暂无积压题目，补题效率满分！！</td></tr>"}
+                {"".join([f"<tr><td align='center'><code>{p['platform']}</code></td><td><a href='{p['url']}'>{p['name']}</a></td><td align='right'>{datetime.fromtimestamp(p['time']).strftime('%m-%d')}</td></tr>" for p in oldest_pending]) if oldest_pending else "<tr><td colspan='3' align='center'>补题效率满分！</td></tr>"}
                 </tbody>
             </table>
         </td>
@@ -122,6 +123,7 @@ def update_readme():
 </table>
 """
 
+    # 2. 构造 README 内容
     content = [
         "# 🏆 Algorithm Training Log\n",
         f"> 🎯 **Goal:** ACM Silver Medal | *Last updated: {now}*\n\n",
@@ -134,18 +136,36 @@ def update_readme():
         "## 📊 AC History\n\n"
     ]
 
-    if daily_ac:
+    # 3. 构造 AC 历史表 (日期带链接) 并准备 CSV 记录
+    if daily_data:
         content.append("| 日期 | " + " | ".join(platforms) + " | **Total** |\n")
         content.append("| :--- | " + " | ".join([":---:"] * len(platforms)) + " | :---: |\n")
-        for d in sorted(daily_ac.keys(), reverse=True):
-            row = [str(daily_ac[d][p]) if daily_ac[d][p] > 0 else "-" for p in platforms]
-            content.append(f"| {d} | " + " | ".join(row) + f" | **{sum(daily_ac[d].values())}** |\n")
+        
+        csv_rows = []
+        for d in sorted(daily_data.keys(), reverse=True):
+            counts = {p: len([x for x in daily_data[d] if x['platform'] == p]) for p in platforms}
+            total = sum(counts.values())
+            
+            # README 行：日期指向 DailyLogs [cite: 2026-01-30]
+            row_md = [str(counts[p]) if counts[p] > 0 else "-" for p in platforms]
+            content.append(f"| [{d}](./DailyLogs/{d}.md) | " + " | ".join(row_md) + f" | **{total}** |\n")
+            
+            # CSV 行记录 (按正序保存)
+            csv_rows.append({'Date': d, **counts, 'Total': total})
 
-    with open(README_FILE, 'w', encoding='utf-8') as f:
-        f.writelines(content)
-    
-    persist_to_csv(daily_ac, platforms)
+        # 4. 写入 README
+        with open(README_FILE, 'w', encoding='utf-8') as f:
+            f.writelines(content)
+
+        # 5. 持久化 CSV (按日期正序写入)
+        headers = ['Date'] + platforms + ['Total']
+        with open(HISTORY_CSV, 'w', newline='', encoding='utf-8-sig') as f:
+            writer = csv.DictWriter(f, fieldnames=headers)
+            writer.writeheader()
+            writer.writerows(sorted(csv_rows, key=lambda x: x['Date']))
 
 if __name__ == "__main__":
-    update_readme()
-    print(f"✅ README 与 CSV 数据已同步！")
+    d_data, ac_pool, todo_pool, p_list = scan_repository()
+    generate_daily_logs(d_data)
+    update_readme_and_csv(d_data, ac_pool, todo_pool, p_list)
+    print(f"✅ 整合同步完成：README 导航、每日总结及 CSV 数据已全部更新。")
