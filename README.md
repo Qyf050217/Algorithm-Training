@@ -1,5 +1,5 @@
 # 🏆 Algorithm Training Log
-> 🎯 **Goal:** ACM Silver Medal | *Last updated: 2026-01-30 21:53:16*
+> 🎯 **Goal:** ACM Silver Medal | *Last updated: 2026-02-01 20:41:44*
 
 ## 📈 Heatmap
 ![Algorithm Training Heatmap](ac_heatmap.png)
@@ -15,7 +15,7 @@
             <table width="100%">
                 <thead><tr><th align="center">平台</th><th align="left">题目</th><th align="right">日期</th></tr></thead>
                 <tbody>
-                <tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/127265/D'>进退的艺术</a></td><td align='right'>01-30</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/127265/A'>模糊匹配</a></td><td align='right'>01-30</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/127265/E'>扫雷难度调节</a></td><td align='right'>01-30</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/127265/F'>徽章计数</a></td><td align='right'>01-30</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/127265/C'>左右左右左左右_左右左左右</a></td><td align='right'>01-30</td></tr>
+                <tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/127264/F'>小红的魔法树探险</a></td><td align='right'>02-01</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/127264/C'>小红的肥鹅健身房</a></td><td align='right'>02-01</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/127264/D'>小红的神秘密码解锁</a></td><td align='right'>02-01</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/127264/A'>小红的大小判断</a></td><td align='right'>02-01</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/127264/E'>小红的多维空间冒险</a></td><td align='right'>02-01</td></tr>
                 </tbody>
             </table>
         </td>
@@ -37,6 +37,7 @@
 
 | 日期 | Codeforces | Luogu | Nowcoder | Others | Vjudge | **Total** |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| [2026-02-01](./DailyLogs/2026-02-01.md) | - | - | 6 | - | - | **6** |
 | [2026-01-30](./DailyLogs/2026-01-30.md) | - | - | 6 | - | - | **6** |
 | [2026-01-29](./DailyLogs/2026-01-29.md) | 8 | - | - | - | - | **8** |
 | [2026-01-28](./DailyLogs/2026-01-28.md) | 4 | - | - | 1 | - | **5** |
