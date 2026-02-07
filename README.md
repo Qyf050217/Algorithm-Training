@@ -1,5 +1,5 @@
 # 🏆 Algorithm Training Log
-> 🎯 **Goal:** ACM Silver Medal | *Last updated: 2026-02-04 23:44:55*
+> 🎯 **Goal:** ACM Silver Medal | *Last updated: 2026-02-07 17:52:36*
 
 ## 📈 Heatmap
 ![Algorithm Training Heatmap](ac_heatmap.png)
@@ -15,7 +15,7 @@
             <table width="100%">
                 <thead><tr><th align="center">平台</th><th align="left">题目</th><th align="right">日期</th></tr></thead>
                 <tbody>
-                <tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/120561/D'>Sequence_Coloring</a></td><td align='right'>02-04</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/120561/L'>Need_Zero</a></td><td align='right'>02-03</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/120561/G'>Digital_Folding</a></td><td align='right'>02-03</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/120561/K'>Constructive</a></td><td align='right'>02-03</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/120561/B'>Card_Game</a></td><td align='right'>02-03</td></tr>
+                <tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/120563/A'>宙天</a></td><td align='right'>02-07</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/120563/G'>スピカの天秤</a></td><td align='right'>02-07</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/120563/H'>Tic_Tac_DREAMIN</a></td><td align='right'>02-07</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/120563/B'>Random</a></td><td align='right'>02-07</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/120563/C'>Inverted_World</a></td><td align='right'>02-07</td></tr>
                 </tbody>
             </table>
         </td>
@@ -37,6 +37,8 @@
 
 | 日期 | Codeforces | Luogu | Nowcoder | Others | Vjudge | **Total** |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| [2026-02-07](./DailyLogs/2026-02-07.md) | - | - | 8 | - | - | **8** |
+| [2026-02-05](./DailyLogs/2026-02-05.md) | - | - | 6 | - | - | **6** |
 | [2026-02-04](./DailyLogs/2026-02-04.md) | - | - | 1 | - | - | **1** |
 | [2026-02-03](./DailyLogs/2026-02-03.md) | - | - | 8 | - | - | **8** |
 | [2026-02-02](./DailyLogs/2026-02-02.md) | 1 | - | - | - | - | **1** |
