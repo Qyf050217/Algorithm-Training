@@ -1,5 +1,5 @@
 # 🏆 Algorithm Training Log
-> 🎯 **Goal:** ACM Silver Medal | *Last updated: 2026-02-15 19:35:50*
+> 🎯 **Goal:** ACM Silver Medal | *Last updated: 2026-02-22 21:09:20*
 
 ## 📈 Heatmap
 ![Algorithm Training Heatmap](ac_heatmap.png)
@@ -15,7 +15,7 @@
             <table width="100%">
                 <thead><tr><th align="center">平台</th><th align="left">题目</th><th align="right">日期</th></tr></thead>
                 <tbody>
-                <tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/128682/E'>镜像</a></td><td align='right'>02-15</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/128682/C'>邻质</a></td><td align='right'>02-15</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/128682/D'>对和</a></td><td align='right'>02-15</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/127094/L'>偶遇</a></td><td align='right'>02-15</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/128682/B'>倍数</a></td><td align='right'>02-15</td></tr>
+                <tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/2192/problem/D'>2192D</a></td><td align='right'>02-22</td></tr><tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/2192/problem/C'>2192C</a></td><td align='right'>02-22</td></tr><tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/2192/problem/B'>2192B</a></td><td align='right'>02-22</td></tr><tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/2192/problem/A'>2192A</a></td><td align='right'>02-22</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/128682/F'>差异</a></td><td align='right'>02-18</td></tr>
                 </tbody>
             </table>
         </td>
@@ -37,6 +37,8 @@
 
 | 日期 | Codeforces | Luogu | Nowcoder | Others | Vjudge | **Total** |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| [2026-02-22](./DailyLogs/2026-02-22.md) | 4 | - | - | - | - | **4** |
+| [2026-02-18](./DailyLogs/2026-02-18.md) | - | - | 2 | - | - | **2** |
 | [2026-02-15](./DailyLogs/2026-02-15.md) | - | - | 6 | - | - | **6** |
 | [2026-02-11](./DailyLogs/2026-02-11.md) | - | - | 7 | - | - | **7** |
 | [2026-02-09](./DailyLogs/2026-02-09.md) | - | - | 7 | - | - | **7** |
