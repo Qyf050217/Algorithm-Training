@@ -22,11 +22,11 @@ PLATFORM_MAP = {
     'codeforces.com': 'Codeforces',
     'nowcoder.com': 'Nowcoder',
     'luogu.com.cn': 'Luogu',
-    'atcoder.jp': 'AtCoder',
-    'qoj.ac': 'QOJ',
-    'ucup.ac': 'UCUP',
-    'vjudge.net': 'Vjudge',
-    'hdu.edu.cn': 'HDOJ'
+    # 'atcoder.jp': 'AtCoder',
+    # 'qoj.ac': 'QOJ',
+    # 'ucup.ac': 'UCUP',
+    # 'vjudge.net': 'Vjudge',
+    # 'hdu.edu.cn': 'HDOJ'
 }
 
 def get_cph_hash(abs_path):
@@ -122,7 +122,6 @@ def get_platform_name(data):
     return "HDOJ" if data.get('group') == "HDOJ" else "Others"
 
 def organize():
-    today = datetime.now().strftime('%Y-%m-%d')
     stats = {"total": 0, "ac": 0, "attempted": 0}
     tasks = [] 
 
@@ -149,6 +148,11 @@ def organize():
     # 3. 执行任务
     for cpp_path, prob_path, source in tasks:
         file_name = os.path.basename(cpp_path)
+        
+        # 【修改点】：在 process_ac_content 可能修改文件内容之前，先提取最后修改时间
+        mtime = os.path.getmtime(cpp_path)
+        file_date = datetime.fromtimestamp(mtime).strftime('%Y-%m-%d')
+        
         status = process_ac_content(cpp_path)
         
         with open(prob_path, 'r', encoding='utf-8') as f:
@@ -156,7 +160,8 @@ def organize():
         platform = get_platform_name(data)
 
         if status == "AC":
-            target = os.path.join("Accepted", platform, today)
+            # 【修改点】：将原先的 today 改为 file_date
+            target = os.path.join("Accepted", platform, file_date)
             if safe_move_cph(cpp_path, target, data):
                 print(f"✅ {YELLOW}[Accepted]{RESET} 🏆 {file_name}")
                 stats["ac"] += 1; stats["total"] += 1
