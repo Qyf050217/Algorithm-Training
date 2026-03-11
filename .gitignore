@@ -30,4 +30,4 @@ __pycache__/
 # --- 系统临时文件 ---
 Thumbs.db
 .DS_Store
-.history/
+.history/ac_heatmap.png 
