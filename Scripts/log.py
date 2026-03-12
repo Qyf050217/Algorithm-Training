@@ -2,7 +2,7 @@ import os
 import csv
 import re
 import json
-from datetime import datetime
+from datetime import datetime, timedelta
 from collections import defaultdict
 
 # --- 1. 路径自动定位 ---
@@ -19,7 +19,6 @@ if not os.path.exists(LOGS_DIR): os.makedirs(LOGS_DIR)
 TOP_N = 5
 
 def get_oj_url(cpp_path):
-    """适配 CPH 插件：从同目录下的 .cph 文件夹提取网址 [cite: 2026-01-30]"""
     cpp_filename = os.path.basename(cpp_path)
     cph_dir = os.path.join(os.path.dirname(cpp_path), '.cph')
     if os.path.exists(cph_dir) and os.path.isdir(cph_dir):
@@ -34,13 +33,11 @@ def get_oj_url(cpp_path):
     return None
 
 def scan_repository():
-    """全量扫描仓库，返回结构化数据 [cite: 2026-01-30]"""
     daily_data = defaultdict(list)
     recent_ac_pool = []
     backlog_pool = []
     all_platforms = set()
 
-    # 1. 扫描 Accepted (用于日志和历史统计)
     if os.path.exists(ACCEPTED_DIR):
         for root, _, files in os.walk(ACCEPTED_DIR):
             for f in files:
@@ -52,15 +49,10 @@ def scan_repository():
                         all_platforms.add(platform)
                         url = get_oj_url(path)
                         mtime = os.path.getmtime(path)
-                        
-                        item = {
-                            'name': f.replace('.cpp', ''), 'url': url, 'platform': platform,
-                            'path': path, 'time': mtime, 'date': date_str
-                        }
+                        item = {'name': f.replace('.cpp', ''), 'url': url, 'platform': platform, 'path': path, 'time': mtime, 'date': date_str}
                         daily_data[date_str].append(item)
                         if url: recent_ac_pool.append(item)
 
-    # 2. 扫描 Attempted (用于积压看板)
     if os.path.exists(ATTEMPTED_DIR):
         for root, _, files in os.walk(ATTEMPTED_DIR):
             for f in files:
@@ -69,16 +61,11 @@ def scan_repository():
                     rel_root = os.path.relpath(root, ATTEMPTED_DIR)
                     platform = rel_root.split(os.sep)[0] if rel_root != "." else "Other"
                     url = get_oj_url(path)
-                    if url:
-                        backlog_pool.append({
-                            'name': f.replace('.cpp', ''), 'url': url, 'platform': platform,
-                            'time': os.path.getmtime(path)
-                        })
+                    if url: backlog_pool.append({'name': f.replace('.cpp', ''), 'url': url, 'platform': platform, 'time': os.path.getmtime(path)})
 
     return daily_data, recent_ac_pool, backlog_pool, sorted(list(all_platforms))
 
 def generate_daily_logs(daily_data):
-    """生成 DailyLogs 下的 MD 文件 [cite: 2026-01-30]"""
     for date_str, probs in daily_data.items():
         log_file = os.path.join(LOGS_DIR, f"{date_str}.md")
         content = [f"# 📝 训练总结: {date_str}\n\n", "| 平台 | 题目名称 | 源码跳转 |\n| :--- | :--- | :--- |\n"]
@@ -89,15 +76,64 @@ def generate_daily_logs(daily_data):
         with open(log_file, 'w', encoding='utf-8') as f:
             f.writelines(content)
 
-def update_readme_and_csv(daily_data, recent_pool, backlog_pool, platforms):
-    """更新 README 看板、带链接的历史表，并持久化 CSV [cite: 2026-01-30]"""
-    now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+def calculate_cf_stats(daily_data):
+    """计算类似 Codeforces 的统计数据：总数与连击天数"""
+    date_counts = {d: len(probs) for d, probs in daily_data.items()}
+    today = datetime.now().date()
+    active_dates = set([datetime.strptime(d, '%Y-%m-%d').date() for d in date_counts.keys()])
     
-    # 看板排序
+    all_time_ac = sum(date_counts.values())
+    if not active_dates:
+        return 0, 0, 0, 0, 0, 0
+        
+    min_date = min(active_dates)
+    last_year_ac, last_month_ac = 0, 0
+    max_all, max_year, max_month = 0, 0, 0
+    cur_streak = 0
+    
+    for i in range((today - min_date).days + 1):
+        d = min_date + timedelta(days=i)
+        if d in active_dates:
+            cur_streak += 1
+        else:
+            cur_streak = 0
+            
+        max_all = max(max_all, cur_streak)
+        if d > today - timedelta(days=365):
+            max_year = max(max_year, cur_streak)
+            if d in active_dates: last_year_ac += date_counts[d.strftime('%Y-%m-%d')]
+        if d >= today - timedelta(days=30):
+            max_month = max(max_month, cur_streak)
+            if d in active_dates: last_month_ac += date_counts[d.strftime('%Y-%m-%d')]
+            
+    return all_time_ac, last_year_ac, last_month_ac, max_all, max_year, max_month
+
+def update_readme_and_csv(daily_data, recent_pool, backlog_pool, platforms):
+    now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     recent_ac = sorted(recent_pool, key=lambda x: x['time'], reverse=True)[:TOP_N]
     oldest_pending = sorted(backlog_pool, key=lambda x: x['time'], reverse=False)[:TOP_N]
 
-    # 1. 构造 Dashboard HTML
+    # 👉 调用 CF 风格统计算法
+    all_ac, yr_ac, mo_ac, all_strk, yr_strk, mo_strk = calculate_cf_stats(daily_data)
+
+    # 👉 构造 CF 风格统计看板 HTML
+    cf_stats_html = f"""
+<div align="center">
+  <table>
+    <tr>
+      <td align="center" width="33%"><b><font size="5" color="#2874a6">{all_ac}</font> problems</b><br><font color="gray" size="2">solved for all time</font></td>
+      <td align="center" width="33%"><b><font size="5" color="#2874a6">{yr_ac}</font> problems</b><br><font color="gray" size="2">solved for the last year</font></td>
+      <td align="center" width="33%"><b><font size="5" color="#2874a6">{mo_ac}</font> problems</b><br><font color="gray" size="2">solved for the last month</font></td>
+    </tr>
+    <tr>
+      <td align="center"><b><font size="5" color="#2874a6">{all_strk}</font> days</b><br><font color="gray" size="2">in a row max.</font></td>
+      <td align="center"><b><font size="5" color="#2874a6">{yr_strk}</font> days</b><br><font color="gray" size="2">in a row for the last year</font></td>
+      <td align="center"><b><font size="5" color="#2874a6">{mo_strk}</font> days</b><br><font color="gray" size="2">in a row for the last month</font></td>
+    </tr>
+  </table>
+</div>
+"""
+
     dashboard_html = f"""
 <table width="100%">
     <tr>
@@ -123,12 +159,12 @@ def update_readme_and_csv(daily_data, recent_pool, backlog_pool, platforms):
 </table>
 """
 
-    # 2. 构造 README 内容
     content = [
         "# 🏆 Algorithm Training Log\n",
         f"> 🎯 **Goal:** ACM Silver Medal | *Last updated: {now}*\n\n",
         "## 📈 Heatmap\n",
         "![Algorithm Training Heatmap](ac_heatmap.png)\n\n",
+        cf_stats_html + "\n\n",
         "--- \n\n",
         "## 🕒 Dashboard\n",
         dashboard_html + "\n",
@@ -136,7 +172,6 @@ def update_readme_and_csv(daily_data, recent_pool, backlog_pool, platforms):
         "## 📊 AC History\n\n"
     ]
 
-    # 3. 构造 AC 历史表 (日期带链接) 并准备 CSV 记录
     if daily_data:
         content.append("| 日期 | " + " | ".join(platforms) + " | **Total** |\n")
         content.append("| :--- | " + " | ".join([":---:"] * len(platforms)) + " | :---: |\n")
@@ -145,19 +180,13 @@ def update_readme_and_csv(daily_data, recent_pool, backlog_pool, platforms):
         for d in sorted(daily_data.keys(), reverse=True):
             counts = {p: len([x for x in daily_data[d] if x['platform'] == p]) for p in platforms}
             total = sum(counts.values())
-            
-            # README 行：日期指向 DailyLogs [cite: 2026-01-30]
             row_md = [str(counts[p]) if counts[p] > 0 else "-" for p in platforms]
             content.append(f"| [{d}](./DailyLogs/{d}.md) | " + " | ".join(row_md) + f" | **{total}** |\n")
-            
-            # CSV 行记录 (按正序保存)
             csv_rows.append({'Date': d, **counts, 'Total': total})
 
-        # 4. 写入 README
         with open(README_FILE, 'w', encoding='utf-8') as f:
             f.writelines(content)
 
-        # 5. 持久化 CSV (按日期正序写入)
         headers = ['Date'] + platforms + ['Total']
         with open(HISTORY_CSV, 'w', newline='', encoding='utf-8-sig') as f:
             writer = csv.DictWriter(f, fieldnames=headers)

@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from datetime import datetime, timedelta
+from matplotlib.colors import ListedColormap
 import os
 
 # 获取当前脚本的绝对路径，并定位到它的上一级（即项目根目录）
@@ -41,10 +42,10 @@ def plot_daily_achievement_heatmap():
         
         if today_ac == 0:
             print(f"{YELLOW}💡 提示：今天还没有 AC 记录，快去写题吧！{RESET}")
+        elif today_ac < 2:
+            print(f"{BLUE}💪 评价：保持手感，目前的进度大约完成了今日目标的 {today_ac/4*100:.1f}%。{RESET}")
         elif today_ac < 4:
-            print(f"{BLUE}💪 评价：保持手感，目前的进度大约完成了今日目标的 {today_ac/8*100:.1f}%。{RESET}")
-        elif today_ac < 8:
-            print(f"{YELLOW}🚀 评价：渐入佳境！再过 {8-today_ac} 题就能达成“深绿”成就！{RESET}")
+            print(f"{YELLOW}🚀 评价：渐入佳境！再过 {4-today_ac} 题就能达成“深绿”成就！{RESET}")
         else:
             print(f"{GREEN}👑 评价：今日目标圆满达成！{RESET}")
         print("-" * 40)
@@ -60,21 +61,22 @@ def plot_daily_achievement_heatmap():
         
         matrix = df.pivot_table(index='weekday', columns='rel_week', values='count', aggfunc='sum')
 
-        # 4. 绘图：锁定 8 题为最深色 [cite: 2026-01-27]
+        # 4. 绘图：精确复刻 CF 经典配色
         plt.figure(figsize=(15, 3))
         
-        # 使用掩码和纯绿颜色盘，确保 1 题也清晰可见
-        mask = (matrix == 0)
         ax = plt.gca()
-        ax.set_facecolor('#ebedf0') # GitHub 风格的空缺格子背景色
+        ax.set_facecolor('#ebedf0') # 经典浅灰底色
+        
+        # 👉 定义 CF 经典的 5 阶极客绿色盘
+        cf_colors = ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127']
+        cf_cmap = ListedColormap(cf_colors)
 
+        # 核心修改点：使用我们自定义的精准色盘
         sns.heatmap(matrix, 
-                    mask=mask,           # 掩盖 0 值格子，露出背景灰
-                    cmap="Greens",       # 纯绿色系，不带黄色
-                    vmin=0, vmax=8, 
+                    cmap=cf_cmap,        
+                    vmin=0, vmax=4,      
                     linewidths=1.5, linecolor='#ffffff', 
-                    cbar=True,           # 恢复右侧图例
-                    cbar_kws={'label': 'AC Count'}, 
+                    cbar=False,          # 去掉右侧图例，视觉更干净
                     square=True,
                     xticklabels=False, 
                     yticklabels=['Mon', '', 'Wed', '', 'Fri', '', 'Sun'])

@@ -1,8 +1,25 @@
 # 🏆 Algorithm Training Log
-> 🎯 **Goal:** ACM Silver Medal | *Last updated: 2026-03-11 23:37:31*
+> 🎯 **Goal:** ACM Silver Medal | *Last updated: 2026-03-12 20:58:28*
 
 ## 📈 Heatmap
-![Algorithm Heatmap](https://raw.githubusercontent.com/Qyf050217/Algorithm-Training/refs/heads/output/ac_heatmap.png)
+![Algorithm Training Heatmap](ac_heatmap.png)
+
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center" width="33%"><b><font size="5" color="#2874a6">100</font> problems</b><br><font color="gray" size="2">solved for all time</font></td>
+      <td align="center" width="33%"><b><font size="5" color="#2874a6">100</font> problems</b><br><font color="gray" size="2">solved for the last year</font></td>
+      <td align="center" width="33%"><b><font size="5" color="#2874a6">36</font> problems</b><br><font color="gray" size="2">solved for the last month</font></td>
+    </tr>
+    <tr>
+      <td align="center"><b><font size="5" color="#2874a6">5</font> days</b><br><font color="gray" size="2">in a row max.</font></td>
+      <td align="center"><b><font size="5" color="#2874a6">5</font> days</b><br><font color="gray" size="2">in a row for the last year</font></td>
+      <td align="center"><b><font size="5" color="#2874a6">2</font> days</b><br><font color="gray" size="2">in a row for the last month</font></td>
+    </tr>
+  </table>
+</div>
+
 
 --- 
 
