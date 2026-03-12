@@ -2,7 +2,7 @@
 > 🎯 **Goal:** ACM Silver Medal | *Last updated: 2026-03-12 20:58:28*
 
 ## 📈 Heatmap
-![Algorithm Training Heatmap](ac_heatmap.png)
+![Algorithm Training Heatmap](https://raw.githubusercontent.com/Qyf050217/Algorithm-Training/refs/heads/output/ac_heatmap.png)
 
 
 <div align="center">
