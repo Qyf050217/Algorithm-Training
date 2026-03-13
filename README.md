@@ -1,8 +1,8 @@
 # 🏆 Algorithm Training Log
-> 🎯 **Goal:** ACM Silver Medal | *Last updated: 2026-03-13 15:44:20*
+> 🎯 **Goal:** ACM Silver Medal | *Last updated: 2026-03-13 15:46:27*
 
 ## 📈 Heatmap
-![Algorithm Training Heatmap](ac_heatmap.png)
+![Algorithm Training Heatmap](https://raw.githubusercontent.com/Qyf050217/Algorithm-Training/refs/heads/output/ac_heatmap.png)
 
 
 <div align="center">

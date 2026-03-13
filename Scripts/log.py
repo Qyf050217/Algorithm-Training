@@ -170,7 +170,7 @@ def update_readme_and_csv(daily_data, recent_pool, backlog_pool, platforms):
         "# 🏆 Algorithm Training Log\n",
         f"> 🎯 **Goal:** ACM Silver Medal | *Last updated: {now}*\n\n",
         "## 📈 Heatmap\n",
-        "![Algorithm Training Heatmap](ac_heatmap.png)\n\n",
+        "![Algorithm Training Heatmap](https://raw.githubusercontent.com/Qyf050217/Algorithm-Training/refs/heads/output/ac_heatmap.png)\n\n",
         cf_stats_html + "\n\n",
         "--- \n\n",
         "## 🕒 Dashboard\n",
