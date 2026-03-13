@@ -1,8 +1,8 @@
 # 🏆 Algorithm Training Log
-> 🎯 **Goal:** ACM Silver Medal | *Last updated: 2026-03-12 20:58:28*
+> 🎯 **Goal:** ACM Silver Medal | *Last updated: 2026-03-13 15:42:51*
 
 ## 📈 Heatmap
-![Algorithm Training Heatmap](https://raw.githubusercontent.com/Qyf050217/Algorithm-Training/refs/heads/output/ac_heatmap.png)
+![Algorithm Training Heatmap](ac_heatmap.png)
 
 
 <div align="center">
@@ -28,20 +28,20 @@
 <table width="100%">
     <tr>
         <td width="50%" valign="top">
-            <h4 align="center">✅ 最近 AC (5)</h4>
+            <h4 align="center">✅ 最近 AC (0)</h4>
             <table width="100%">
                 <thead><tr><th align="center">平台</th><th align="left">题目</th><th align="right">日期</th></tr></thead>
                 <tbody>
-                <tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/gym/103503/problem/A'>103503A</a></td><td align='right'>03-11</td></tr><tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/2207/problem/B'>2207B</a></td><td align='right'>03-11</td></tr><tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/2200/problem/E'>2200E</a></td><td align='right'>03-08</td></tr><tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/2205/problem/D'>2205D</a></td><td align='right'>03-03</td></tr><tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/2205/problem/C'>2205C</a></td><td align='right'>03-01</td></tr>
+                <tr><td colspan='3' align='center'>暂无记录</td></tr>
                 </tbody>
             </table>
         </td>
         <td width="50%" valign="top">
-            <h4 align="center">⌛ 积压最久 (5)</h4>
+            <h4 align="center">⌛ 积压最久 (0)</h4>
             <table width="100%">
                 <thead><tr><th align="center">平台</th><th align="left">题目</th><th align="right">日期</th></tr></thead>
                 <tbody>
-                <tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/gym/105198/problem/G'>105198G</a></td><td align='right'>01-28</td></tr><tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/940/problem/F'>940F</a></td><td align='right'>01-29</td></tr><tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/2189/problem/C2'>2189C2</a></td><td align='right'>01-29</td></tr><tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/2188/problem/D'>2188D</a></td><td align='right'>01-30</td></tr><tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/gym/102890/problem/M'>102890M</a></td><td align='right'>01-30</td></tr>
+                <tr><td colspan='3' align='center'>补题效率满分！</td></tr>
                 </tbody>
             </table>
         </td>

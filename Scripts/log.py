@@ -17,6 +17,7 @@ if not os.path.exists(LOGS_DIR): os.makedirs(LOGS_DIR)
 
 # --- 2. 配置参数 ---
 TOP_N = 5
+TIME_LOCK_DATE = "2026-03-12"
 
 def get_oj_url(cpp_path):
     cpp_filename = os.path.basename(cpp_path)
@@ -67,12 +68,18 @@ def scan_repository():
 
 def generate_daily_logs(daily_data):
     for date_str, probs in daily_data.items():
+        # 👉 时间锁逻辑：如果日期早于 2026-03-12，则跳过生成（保护旧日志）
+        if date_str < TIME_LOCK_DATE:
+            # print(f"🛡️ 日期 {date_str} 已被锁定，跳过更新以保护历史数据。")
+            continue
+            
         log_file = os.path.join(LOGS_DIR, f"{date_str}.md")
         content = [f"# 📝 训练总结: {date_str}\n\n", "| 平台 | 题目名称 | 源码跳转 |\n| :--- | :--- | :--- |\n"]
         for p in probs:
             rel_code_path = os.path.relpath(p['path'], LOGS_DIR).replace('\\', '/')
             name_display = f"[{p['name']}]({p['url']})" if p['url'] else f"**{p['name']} (本地)**"
             content.append(f"| `{p['platform']}` | {name_display} | [查看代码]({rel_code_path}) |\n")
+        
         with open(log_file, 'w', encoding='utf-8') as f:
             f.writelines(content)
 
