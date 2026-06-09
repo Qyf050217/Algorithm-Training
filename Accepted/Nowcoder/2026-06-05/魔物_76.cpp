@@ -25,9 +25,9 @@ void solve(){
             res += val[l];
         }
         if (r < n) {
-            res -= val[r];
-            val[r] = ((val[r] - 1) % 5 + 5) % 5;
-            res += val[r];
+            res -= val[r + 1];
+            val[r + 1] = ((val[r + 1] - 1) % 5 + 5) % 5;
+            res += val[r + 1];
         }
         cout << res << endl;
     }
