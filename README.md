@@ -1,5 +1,5 @@
 # 🏆 Algorithm Training Log
-> 🎯 **Goal:** ACM Silver Medal | *Last updated: 2026-07-13 17:06:17*
+> 🎯 **Goal:** ACM Silver Medal | *Last updated: 2026-07-13 22:02:10*
 
 ## 📈 Heatmap
 ![Algorithm Training Heatmap](https://raw.githubusercontent.com/Qyf050217/Algorithm-Training/refs/heads/output/ac_heatmap.png)
@@ -33,7 +33,7 @@
             <table width="100%">
                 <thead><tr><th align="center">平台</th><th align="left">题目</th><th align="right">日期</th></tr></thead>
                 <tbody>
-                <tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/559/problem/C'>559C</a></td><td align='right'>07-13</td></tr><tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/2246/problem/D'>2246D</a></td><td align='right'>07-13</td></tr><tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/2233/problem/D'>2233D</a></td><td align='right'>06-10</td></tr><tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/2233/problem/C'>2233C</a></td><td align='right'>06-10</td></tr><tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/2233/problem/B'>2233B</a></td><td align='right'>06-10</td></tr>
+                <tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/2246/problem/D'>2246D</a></td><td align='right'>07-13</td></tr><tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/559/problem/C'>559C</a></td><td align='right'>07-13</td></tr><tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/2233/problem/D'>2233D</a></td><td align='right'>06-10</td></tr><tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/2233/problem/C'>2233C</a></td><td align='right'>06-10</td></tr><tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/2233/problem/B'>2233B</a></td><td align='right'>06-10</td></tr>
                 </tbody>
             </table>
         </td>

@@ -38,7 +38,7 @@ void solve(){
             int mn = cnt(x) + x - arr[i];
             int fin = x;
             for (int BIT = bit; BIT <= 20; BIT++) {
-                while (!check(x, bit)) x += lowbit(x);
+                while (!check(x, BIT)) x += lowbit(x);
                 int cost = cnt(x) + x - arr[i];
                 if (cost < mn) {
                     mn = cost;
