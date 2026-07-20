@@ -1,5 +1,5 @@
 # 🏆 Algorithm Training Log
-> 🎯 **Goal:** ACM Silver Medal | *Last updated: 2026-07-18 22:33:49*
+> 🎯 **Goal:** ACM Silver Medal | *Last updated: 2026-07-20 18:06:19*
 
 ## 📈 Heatmap
 ![Algorithm Training Heatmap](https://raw.githubusercontent.com/Qyf050217/Algorithm-Training/refs/heads/output/ac_heatmap.png)
@@ -8,14 +8,14 @@
 <div align="center">
   <table width="100%">
     <tr>
-      <td align="center"><b><font size="5" color="#2874a6">236</font> problems</b><br><font color="gray" size="2">solved for all time</font></td>
-      <td align="center"><b><font size="5" color="#2874a6">236</font> problems</b><br><font color="gray" size="2">solved for the last year</font></td>
-      <td align="center"><b><font size="5" color="#2874a6">16</font> problems</b><br><font color="gray" size="2">solved for the last month</font></td>
+      <td align="center"><b><font size="5" color="#2874a6">240</font> problems</b><br><font color="gray" size="2">solved for all time</font></td>
+      <td align="center"><b><font size="5" color="#2874a6">240</font> problems</b><br><font color="gray" size="2">solved for the last year</font></td>
+      <td align="center"><b><font size="5" color="#2874a6">20</font> problems</b><br><font color="gray" size="2">solved for the last month</font></td>
     </tr>
     <tr>
       <td align="center"><b><font size="5" color="#2874a6">8</font> days</b><br><font color="gray" size="2">in a row max.</font></td>
       <td align="center"><b><font size="5" color="#2874a6">8</font> days</b><br><font color="gray" size="2">in a row for the last year</font></td>
-      <td align="center"><b><font size="5" color="#2874a6">6</font> days</b><br><font color="gray" size="2">in a row for the last month</font></td>
+      <td align="center"><b><font size="5" color="#2874a6">7</font> days</b><br><font color="gray" size="2">in a row for the last month</font></td>
     </tr>
   </table>
 </div>
@@ -33,7 +33,7 @@
             <table width="100%">
                 <thead><tr><th align="center">平台</th><th align="left">题目</th><th align="right">日期</th></tr></thead>
                 <tbody>
-                <tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/133876/J'>Show_Hand</a></td><td align='right'>07-18</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/108307/F'>Sensei_and_Yuuka_Going_Shopping_yuuka</a></td><td align='right'>07-18</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/108307/E'>Sensei_and_Affection_affection</a></td><td align='right'>07-18</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/133876/G'>Precision_Error</a></td><td align='right'>07-18</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/133876/F'>Permutation_Generation</a></td><td align='right'>07-18</td></tr>
+                <tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/2247/problem/D1'>2247D1</a></td><td align='right'>07-20</td></tr><tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/2247/problem/C'>2247C</a></td><td align='right'>07-20</td></tr><tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/2247/problem/B'>2247B</a></td><td align='right'>07-20</td></tr><tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/2247/problem/A'>2247A</a></td><td align='right'>07-20</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/133876/J'>Show_Hand</a></td><td align='right'>07-18</td></tr>
                 </tbody>
             </table>
         </td>
@@ -58,7 +58,8 @@
 
 | 日期 | Codeforces | HDOJ | Local | Luogu | Nowcoder | **Total** |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| [2026-07-18](./DailyLogs/2026-07-18.md) | - | - | 1 | - | 2 | **3** |
+| [2026-07-19](./DailyLogs/2026-07-19.md) | 1 | - | - | - | - | **1** |
+| [2026-07-18](./DailyLogs/2026-07-18.md) | 3 | - | 1 | - | 2 | **6** |
 | [2026-07-17](./DailyLogs/2026-07-17.md) | - | - | - | - | 3 | **3** |
 | [2026-07-16](./DailyLogs/2026-07-16.md) | 3 | - | - | - | - | **3** |
 | [2026-07-15](./DailyLogs/2026-07-15.md) | 1 | - | - | - | 2 | **3** |
