@@ -1,5 +1,5 @@
 # 🏆 Algorithm Training Log
-> 🎯 **Goal:** ACM Silver Medal | *Last updated: 2026-07-20 18:06:48*
+> 🎯 **Goal:** ACM Silver Medal | *Last updated: 2026-07-31 19:53:46*
 
 ## 📈 Heatmap
 ![Algorithm Training Heatmap](https://raw.githubusercontent.com/Qyf050217/Algorithm-Training/refs/heads/output/ac_heatmap.png)
@@ -8,9 +8,9 @@
 <div align="center">
   <table width="100%">
     <tr>
-      <td align="center"><b><font size="5" color="#2874a6">240</font> problems</b><br><font color="gray" size="2">solved for all time</font></td>
-      <td align="center"><b><font size="5" color="#2874a6">240</font> problems</b><br><font color="gray" size="2">solved for the last year</font></td>
-      <td align="center"><b><font size="5" color="#2874a6">20</font> problems</b><br><font color="gray" size="2">solved for the last month</font></td>
+      <td align="center"><b><font size="5" color="#2874a6">270</font> problems</b><br><font color="gray" size="2">solved for all time</font></td>
+      <td align="center"><b><font size="5" color="#2874a6">270</font> problems</b><br><font color="gray" size="2">solved for the last year</font></td>
+      <td align="center"><b><font size="5" color="#2874a6">50</font> problems</b><br><font color="gray" size="2">solved for the last month</font></td>
     </tr>
     <tr>
       <td align="center"><b><font size="5" color="#2874a6">8</font> days</b><br><font color="gray" size="2">in a row max.</font></td>
@@ -33,7 +33,7 @@
             <table width="100%">
                 <thead><tr><th align="center">平台</th><th align="left">题目</th><th align="right">日期</th></tr></thead>
                 <tbody>
-                <tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/2247/problem/D1'>2247D1</a></td><td align='right'>07-20</td></tr><tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/2247/problem/C'>2247C</a></td><td align='right'>07-20</td></tr><tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/2247/problem/B'>2247B</a></td><td align='right'>07-20</td></tr><tr><td align='center'><code>Codeforces</code></td><td><a href='https://codeforces.com/contest/2247/problem/A'>2247A</a></td><td align='right'>07-20</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/133876/J'>Show_Hand</a></td><td align='right'>07-18</td></tr>
+                <tr><td align='center'><code>HDOJ</code></td><td><a href='https://acm.hdu.edu.cn/contest/problem?cid=1229&pid=1010'>游戏</a></td><td align='right'>07-31</td></tr><tr><td align='center'><code>HDOJ</code></td><td><a href='https://acm.hdu.edu.cn/contest/problem?cid=1229&pid=1004'>搭积木</a></td><td align='right'>07-31</td></tr><tr><td align='center'><code>HDOJ</code></td><td><a href='https://acm.hdu.edu.cn/contest/problem?cid=1230&pid=1010'>幻灵战队_2</a></td><td align='right'>07-31</td></tr><tr><td align='center'><code>HDOJ</code></td><td><a href='https://acm.hdu.edu.cn/contest/problem?cid=1229&pid=1001'>小丑牌</a></td><td align='right'>07-31</td></tr><tr><td align='center'><code>Nowcoder</code></td><td><a href='https://ac.nowcoder.com/acm/contest/133878/L'>Uphill_Duel</a></td><td align='right'>07-31</td></tr>
                 </tbody>
             </table>
         </td>
@@ -58,6 +58,15 @@
 
 | 日期 | Codeforces | HDOJ | Local | Luogu | Nowcoder | **Total** |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| [2026-07-31](./DailyLogs/2026-07-31.md) | - | - | - | - | 2 | **2** |
+| [2026-07-30](./DailyLogs/2026-07-30.md) | - | 1 | - | - | - | **1** |
+| [2026-07-27](./DailyLogs/2026-07-27.md) | 2 | - | - | - | - | **2** |
+| [2026-07-26](./DailyLogs/2026-07-26.md) | 3 | - | - | 1 | 1 | **5** |
+| [2026-07-25](./DailyLogs/2026-07-25.md) | - | - | - | 5 | - | **5** |
+| [2026-07-24](./DailyLogs/2026-07-24.md) | - | - | 1 | 1 | 4 | **6** |
+| [2026-07-23](./DailyLogs/2026-07-23.md) | - | 1 | - | - | - | **1** |
+| [2026-07-22](./DailyLogs/2026-07-22.md) | - | 1 | - | - | 5 | **6** |
+| [2026-07-21](./DailyLogs/2026-07-21.md) | - | 2 | - | - | - | **2** |
 | [2026-07-19](./DailyLogs/2026-07-19.md) | 1 | - | - | - | - | **1** |
 | [2026-07-18](./DailyLogs/2026-07-18.md) | 3 | - | 1 | - | 2 | **6** |
 | [2026-07-17](./DailyLogs/2026-07-17.md) | - | - | - | - | 3 | **3** |
